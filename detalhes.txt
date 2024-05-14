@@ -1,0 +1,67 @@
+####O BACKEND DO TYPEBOT LOCAL É O VIEWER DA PORTA 3001
+####O FRONTEND DO TYPEBOT LOCAL É O BUILDER DA PORTA 3000
+
+###ESCOLHI A PORTA 9992 pro debugger no backend (viewer), 9990 por frontend (builder) e 9994 pro chat api, ver se o debugger attachado no next ficam esses mesmos no console
+
+###SUGIRO CLONAR O TYPEBOT DEBUGADO DO MEU GITHUB
+
+---------------------------O DEBUG------------------------------------
+
+1-npm i -g cross-env
+
+2-DEVE SELECTIONAR O QUE EU QUERO DEBUGAR, tenho o chat-api o viewer (backend) e builder em typebot.io/apps/viewer ou typebot.io/apps/builder ou typebot.io/apps/chat-api
+
+3-Configuração do package.json para debug:
+
+  LINUX ===> adicionar NODE_OPTIONS='--inspect=PORTA_DEBUG' (instantaneamente antes de next dev) ao "scripts:dev" do respectivo packages.json no DIRETORIO ATUAL NAO RAIZ (apps/chat-api || apps/viewer etc...)
+  WINDOWS ===> adicionar cross-env NODE_OPTIONS='--inspect=PORTA_DEBUG' (instantaneamente antes de next dev) ao "scripts:dev" do respectivo packages.json no DIRETORIO ATUAL NAO RAIZ (apps/chat-api || apps/viewer etc...)
+  EXEMPLO ===>   "scripts": {
+    "dev": "dotenv -e ./.env -e ../../.env  -- cross-env NODE_OPTIONS='--inspect=9992' next dev -p 3001",
+
+4-Abrir o vscode na pasta RAIZ e configurar o launch.json como:
+
+
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Next.js: debug server-side",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "npm run dev"
+    },
+    {
+      "name": "Next.js: debug client-side",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:3000"
+    },
+    {
+      "name": "Next.js: debug full stack",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/node_modules/.bin/next",
+      "runtimeArgs": ["--inspect"],
+      "skipFiles": ["<node_internals>/**"],
+      "serverReadyAction": {
+        "action": "debugWithEdge",
+        "killOnServerStop": true,
+        "pattern": "- Local:.+(https?://.+)",
+        "uriFormat": "%s",
+        "webRoot": "${workspaceFolder}"
+      }
+    }
+  ]
+}
+
+5-Rodar o projeto com esse launch.json
+
+6-Ver a porta real de debug no terminal do vscode rodando o projeto (palavra chave "Next.js router server")
+
+7-Acessar chrome://inspect > open dedicated devtools for node > adicionar localhost com a porta de debug retornada pelo terminal next do vscode
+
+8-Apos isso ir em fontes>adicionar pasta
+
+9-Adicione a pasta raiz do typebot (deve ficar como pasta inicial typebot.io)
+
+10-Agora voce pode usar os breakpoints sem problemas
