@@ -8,6 +8,6 @@
   <div class="code"> - copy .env.example .env</div><br>
   <div class="code"> - npm i bun</div><br>
   <div class="code"> - npm i turbo</div><br>
-  <div class="warning">Caso o bun e turbo nao sejam reconhecidos no terminal se deve criar uma variavel ambiente path no windows no diretório relativo ...\AppData\Roaming\npm (procure por %appdata% no buscador do windows que achará) </div><br>
+  <div class="warning"><b>Caso o bun e turbo nao sejam reconhecidos no terminal se deve criar uma variavel ambiente path no windows no diretório relativo ...\AppData\Roaming\npm (procure por %appdata% no buscador do windows que achará) </b></div><br>
 
 </main>
