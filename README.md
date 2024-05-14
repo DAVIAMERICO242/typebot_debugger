@@ -18,7 +18,7 @@
   <h1>Configurar debugger</h1>
   <div><i>Nesse projeto escolhi a porta 9992 pro debugger no backend (viewer), 9990 por frontend (builder) e 9994 pro chat api.</i></div><br>
   <div>Abrir o vs code em typebot.io e configurar o seguinte launch.json:</div><br>
-  <div>
+
    ```json
   {
   "version": "0.2.0",
@@ -53,7 +53,7 @@
   ]
 }
  ```json
-</div>
+
 
   
 
