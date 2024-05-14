@@ -15,6 +15,43 @@
   <div class="code"> - pnpm i </div><br>
   <div class="code"> - pnpm dev </div><br>
   <div><i>O frontend será visivel em localhost:3000 (pnpm dev irá rodar o projeto sem nenhum tipo de debug)</i></div>
+  <h1>Configurar debugger</h1>
+  <div><i>Nesse projeto escolhi a porta 9992 pro debugger no backend (viewer), 9990 por frontend (builder) e 9994 pro chat api.</i></div><br>
+  <div>Abrir o vs code em typebot.io e configurar o seguinte launch.json:</div><br>
+  <div>
+  {
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Next.js: debug server-side",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "npm run dev"
+    },
+    {
+      "name": "Next.js: debug client-side",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:3000"
+    },
+    {
+      "name": "Next.js: debug full stack",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/node_modules/.bin/next",
+      "runtimeArgs": ["--inspect"],
+      "skipFiles": ["<node_internals>/**"],
+      "serverReadyAction": {
+        "action": "debugWithEdge",
+        "killOnServerStop": true,
+        "pattern": "- Local:.+(https?://.+)",
+        "uriFormat": "%s",
+        "webRoot": "${workspaceFolder}"
+      }
+    }
+  ]
+}  
+</div>
 
   
 
