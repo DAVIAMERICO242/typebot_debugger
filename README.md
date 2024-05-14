@@ -1,6 +1,6 @@
 <main>
   <h1>Apresentação</h1>
-  <div>Esse tutorial ensina como instalar o typebot localmente pelo windows sem simular um abiente ubuntu e a como configurar um debugger para o mesmo.</div><br>
+  <div>Esse tutorial ensina como instalar o typebot localmente pelo windows sem simular um abiente ubuntu e a como configurar um debugger para o mesmo.A pasta detalhes.txt conta como fiz isso.</div><br>
   <div><i>PS:Alguns arquivos são modificados do projeto original para que os breakpoints do debugger sejam reconhecidos.</i></div>
   <h1>Requisitos</h1>
   <div>Requer VsCode, Google chrome e Docker Desktop Aberto</div>
