@@ -1,3 +1,10 @@
+<head>
+  <style>
+    .code{
+      background-color:gray;
+    }
+  </style>
+</head>
 <main>
   <h1>Apresentação</h1>
   <div>Esse tutorial ensina como instalar o typebot localmente pelo windows sem simular um abiente ubuntu e configurar um debugger para o mesmo.</div>
